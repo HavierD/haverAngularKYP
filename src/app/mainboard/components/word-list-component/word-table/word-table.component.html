@@ -1,0 +1,53 @@
+<div class="mat-elevation-z8 container">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="filter" #input />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sort By</mat-label>
+    <mat-select
+      [(value)]="selectedSortOption"
+      (selectionChange)="applySort($event.value)"
+    >
+      <mat-option value="wordAlphabet">Words: Alphabetical Order</mat-option>
+      <mat-option value="wordAlphabetReverse">
+        Words: Reverse Alphabetical Order
+      </mat-option>
+      <mat-option value="repetitionLowToHigh">
+        Repetition: Low to High
+      </mat-option>
+      <mat-option value="repetitionHighToLow">
+        Repetition: High to Low
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <h4>Rows: {{ words.length }}</h4>
+
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Word">
+      <th mat-header-cell *matHeaderCellDef>Word</th>
+      <td mat-cell *matCellDef="let word">{{ word.word }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Repetition">
+      <th mat-header-cell *matHeaderCellDef>Repetition</th>
+      <td mat-cell *matCellDef="let word">{{ word.repetition }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Last Meet Date">
+      <th mat-header-cell *matHeaderCellDef>Last Meet Date</th>
+      <td mat-cell *matCellDef="let word">
+        {{ word.lastMeetTime }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="3">
+        No Data Matching the Filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+</div>

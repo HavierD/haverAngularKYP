@@ -1,0 +1,28 @@
+<div *ngIf="records.length > 0">
+  <div>
+    <!-- <p>{{ wordList[0].word }}</p> -->
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h2>WORDS READING RECORDS</h2>
+        </mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-tab-group>
+          <mat-tab label="WORDS">
+            <app-words-reading-records-table
+              [records]="records"
+            ></app-words-reading-records-table>
+          </mat-tab>
+        </mat-tab-group>
+        <!-- <app-word-table [words]="words"></app-word-table> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<div class="spinner" *ngIf="!(records.length > 0)">
+  <mat-spinner diameter="80"></mat-spinner>
+  <h1>LOADING</h1>
+</div>

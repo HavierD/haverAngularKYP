@@ -1,0 +1,30 @@
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav
+    #sidenav
+    [mode]="isScreenSmall ? 'over' : 'side'"
+    [opened]="!isScreenSmall"
+    class="app-sidenav mat-elevation-z10"
+  >
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+
+    <mat-nav-list>
+      <a matListItemTitle [routerLink]="['/mainboard/wordList']">
+        <mat-list-item>VIEW WORD LIST</mat-list-item>
+      </a>
+      <a matListItemTitle [routerLink]="['/mainboard/wordsImport']">
+        <mat-list-item>IMPORT WORDS</mat-list-item>
+      </a>
+      <a matListItemTitle [routerLink]="['/mainboard/wordsRecord']">
+        <mat-list-item>WORDS READING RECORDS</mat-list-item>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="app-sidenav-content">
+    <app-toobar (toggleSidenav)="sidenav.toggle()"></app-toobar>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+    <button type="button" mat-button (click)="sidenav.toggle()"></button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

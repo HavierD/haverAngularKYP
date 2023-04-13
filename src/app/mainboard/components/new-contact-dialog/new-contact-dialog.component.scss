@@ -1,0 +1,14 @@
+// :host {
+//     display: flex;
+//     flex-direction: column;
+//     // align-items: flex-start;
+// }
+
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-container > * {
+    width: 100%;
+}
