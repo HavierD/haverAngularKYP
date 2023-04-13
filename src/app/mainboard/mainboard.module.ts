@@ -14,7 +14,6 @@ import { WordService } from './services/word.service';
 import { HttpClientModule } from '@angular/common/http';
 import { WordTableComponent } from './components/word-list-component/word-table/word-table.component';
 import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
-import { ButtonsComponent } from '../demo/buttons/buttons.component';
 import { MatSortModule } from '@angular/material/sort';
 import { WordsImportComponent } from './components/words-import/words-import.component';
 import { WordsReadingRecordsComponent } from './components/words-reading-records/words-reading-records.component';
